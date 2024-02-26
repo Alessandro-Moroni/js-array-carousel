@@ -64,10 +64,13 @@
   display: none;
 }
 
-.list-img img{
+.images-list{
   height: 20%;
   width: 100%;
   object-fit: cover;
   opacity: .5;
-  
+ 
+}
+.active{
+  opacity: 1;
 }
