@@ -3,7 +3,6 @@ const up = document.querySelector('.up');
 const down = document.querySelector('.down');
 const imagesList = document.querySelector('.list-img')
 
-up.classList.add('hide');
 
 let counterImg = 0;
 
@@ -19,43 +18,52 @@ for(let i = 0; i < images.length; i++){
   const img = images[i];
   imgWrapper.innerHTML += `<img class="img hide" src="${img}" >`;
   
-  imagesList.innerHTML += `<img class="images-list" src="${img}" >`;
+  imagesList.innerHTML += `<img class="images-list opacity" src="${img}" >`;
 
 }
 
 const itemsCollection = document.getElementsByClassName('img');
-itemsCollection[0].classList.remove('hide');
+itemsCollection[counterImg].classList.remove('hide');
 
-// imagesList[counterImg].classList.add('active');
+
+const smallImages = document.getElementsByClassName('images-list');
+smallImages[0].classList.remove('opacity');
 
 // tatso up
 up.addEventListener('click', function(){
-  itemsCollection[counterImg--].classList.add('hide');
+  smallImages[counterImg].classList.add('opacity');
 
-  itemsCollection[counterImg].classList.remove('hide');
+  itemsCollection[counterImg--].classList.add('hide');
   
-  if(counterImg === 0){
-    up.classList.add('hide');
+  if(counterImg < 0){
+    counterImg = images.length - 1;
   }
 
-  down.classList.remove('hide');
+  itemsCollection[counterImg].classList.remove('hide');
 
+  smallImages[counterImg].classList.remove('opacity');
+  
+  down.classList.remove('hide');
+  
 })
 
 // tasto down
 down.addEventListener('click', function(){
   up.classList.remove('hide');
 
+  smallImages[counterImg].classList.add('opacity');
+  
   itemsCollection[counterImg++].classList.add('hide');
-
+  
+ if(counterImg === images.length){
+  counterImg = 0;
+ }
   itemsCollection[counterImg].classList.remove('hide');
   
-  if(counterImg === images.length - 1){
-    down.classList.add('hide');
-  }
+  smallImages[counterImg].classList.remove('opacity');
+
 
 
 })
-
 
 
