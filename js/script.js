@@ -19,7 +19,8 @@ for(let i = 0; i < images.length; i++){
   const img = images[i];
   imgWrapper.innerHTML += `<img class="img hide" src="${img}" >`;
   
-  // imagesList.innerHTML += `<img class="images-list" src="${img}" >`;
+  imagesList.innerHTML += `<img class="images-list" src="${img}" >`;
+
 }
 
 const itemsCollection = document.getElementsByClassName('img');
@@ -55,5 +56,6 @@ down.addEventListener('click', function(){
 
 
 })
+
 
 

@@ -31,7 +31,7 @@
   position: relative;
   border: 1px solid red;
 }
-.arrow{
+div .list-img .arrow{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -55,7 +55,7 @@
   bottom: 10px;
 }
 
-.img-wrapper img{
+.img-wrapper .img{
   object-fit: cover;
   height: 100%;
   width: 100%;
@@ -69,6 +69,7 @@
   width: 100%;
   object-fit: cover;
   opacity: .5;
+  display: block;
  
 }
 .active{
